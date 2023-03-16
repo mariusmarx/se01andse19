@@ -65,9 +65,9 @@
     </div>
 
 
-    <!--Title adapt-->
-    <form>
-        <div class="text-center pt-16 md:pt-32">
+    <!--Form-->
+    <form id="form">
+        <div class="text-center pt-8 md:pt-16">
             <input class="text-sm md:text-base text-orange-500 font-bold" type="date" id="date">
             <span class="text-gray-900"> / </span>
             <select class="text-sm md:text-base text-orange-500 font-bold" id="category" name="category" size="3">
@@ -81,9 +81,9 @@
         </div>
 
         <!--Image upload-->
-        <div class="container w-full max-w-6xl mx-auto bg-white bg-cover mt-8 rounded">
-            <input type="url" id="image-input" placeholder="https://image-url.com">
-            <button id="b">Change Image</button>
+        <div class="container w-full max-w-6xl mx-auto text-xl md:text-2xl text-gray-800 bg-white bg-cover mt-8 rounded">
+            <input class="w-1/2" type="url" id="image-input" placeholder="https://image-url.com">
+            <button class="bg-orange-500 p-2 text-white rounded-lg" id="poster-image">Change Image</button>
             <br>
             <img src="https://images.unsplash.com/photo-1621750627159-cf77b0b91aac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80"
                 id="image"
@@ -102,62 +102,31 @@
                     <!--Post Content-->
 
                     <!--Lead Para-->
-                    <p class="text-2xl md:text-3xl mb-5">
-                        👋 Welcome fellow <a
-                            class="text-gray-800 hover:text-orange-500 no-underline border-b-2 border-orange-500"
-                            href="https://www.tailwindcss.com">Tailwind CSS</a> and <a
-                            class="text-gray-800 hover:text-orange-500 no-underline border-b-2 border-orange-500"
-                            href="https://www.ghost.org">Ghost</a> fan. This starter template is an attempt to replicate
-                        the default Ghost theme <a
-                            class="text-gray-800 hover:text-orange-500 no-underline border-b-2 border-orange-500"
-                            href="https://demo.ghost.io/welcome">"Casper"</a> using Tailwind CSS and vanilla Javascript.
-                    </p>
+                    <textarea class="text-2xl md:text-3xl mb-5 w-full" id="subheadline" placeholder="👋 Hey, this is your subheadline."></textarea>
 
-                    <p class="py-6">The basic blog page layout is available and all using the default Tailwind CSS
-                        classes (although there are a few hardcoded style tags). If you are going to use this in your
-                        project, you will want to convert the classes into components.</p>
+                    <textarea class="w-full" id="textmain" placeholder="This is your article text. You can write about whatever you like. Please make sure that all your writing is appropriate and non-insulting, except for people who do crossfit. It is ok to insult people who do crossfit."></textarea>
 
-                    <p class="py-6">Sed dignissim lectus ut tincidunt vulputate. Fusce tincidunt lacus purus, in mattis
-                        tortor sollicitudin pretium. Phasellus at diam posuere, scelerisque nisl sit amet, tincidunt
-                        urna. Cras nisi diam, pulvinar ut molestie eget, eleifend ac magna. Sed at lorem condimentum,
-                        dignissim lorem eu, blandit massa. Phasellus eleifend turpis vel erat bibendum scelerisque.
-                        Maecenas id risus dictum, rhoncus odio vitae, maximus purus. Etiam efficitur dolor in dolor
-                        molestie ornare. Aenean pulvinar diam nec neque tincidunt, vitae molestie quam fermentum. Donec
-                        ac pretium diam. Suspendisse sed odio risus. Nunc nec luctus nisi. Class aptent taciti sociosqu
-                        ad litora torquent per conubia nostra, per inceptos himenaeos. Duis nec nulla eget sem dictum
-                        elementum.</p>
+                    <input class="py-6 w-full" id="imageheading" placeholder="Headline of your explainatory image.">
 
-                    <ol>
-                        <li class="py-3">Maecenas accumsan lacus sit amet elementum porta. Aliquam eu libero lectus.
-                            Fusce vehicula dictum mi. In non dolor at sem ullamcorper venenatis ut sed dui. Ut ut est
-                            quam. Suspendisse quam quam, commodo sit amet placerat in, interdum a ipsum. Morbi sit amet
-                            tellus scelerisque tortor semper posuere.</li>
-                        <li class="py-3">Morbi varius posuere blandit. Praesent gravida bibendum neque eget commodo.
-                            Duis auctor ornare mauris, eu accumsan odio viverra in. Proin sagittis maximus pharetra.
-                            Nullam lorem mauris, faucibus ut odio tempus, ultrices aliquet ex. Nam id quam eget ipsum
-                            luctus hendrerit. Ut eros magna, eleifend ac ornare vulputate, pretium nec felis.</li>
-                        <li class="py-3">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                            cubilia Curae; Nunc vitae pretium elit. Cras leo mauris, tristique in risus ac, tristique
-                            rutrum velit. Mauris accumsan tempor felis vitae gravida. Cras egestas convallis malesuada.
-                            Etiam ac ante id tortor vulputate pretium. Maecenas vel sapien suscipit, elementum odio et,
-                            consequat tellus.</li>
-                    </ol>
+                    <!--Image upload-->
+                    <div class="container w-full max-w-6xl mx-auto bg-white bg-cover mt-8 rounded">
+                        <input class="w-1/2" type="url" id="explain-image-input" placeholder="https://image-url.com">
+                        <button class="bg-orange-500 p-2 text-white rounded-lg" id="explain-image">Change Image</button>
+                        <br>
+                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                            id="image2" class="container w-full max-w-6xl h-[40vh] object-cover mx-auto bg-white bg-cover mt-8 rounded">
+                    </div>
 
-                    <blockquote class="border-l-4 border-orange-500 italic my-8 pl-8 md:pl-12">Example of blockquote -
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                        posuere et sit amet ligula.</blockquote>
+                    <div class="container flex justify-center w-full max-w-6xl mx-auto bg-white bg-cover mt-8 rounded">
+                    <button class="bg-orange-500 p-2 text-white rounded-lg" id="submit-button">Create Post</button>
+                    </div>
 
-                    <p class="py-6">Example code block:</p>
-                    <pre class="bg-gray-900 rounded text-white font-mono text-base p-4">
-					<code class="break-words whitespace-pre-wrap">
-&lt;header class="site-header outer"&gt;
-  &lt;div class="inner"&gt;
-    {{&gt; "site-nav"}}
-  &lt;/div&gt;
-&lt;/header&gt;
-					</code>
-				</pre>
+                </div>
     </form>
+
+    <div>
+        <small id="error-message"></small>
+    </div>
 
 
     <!--/ Post Content-->
