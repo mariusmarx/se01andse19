@@ -19,7 +19,7 @@ router.get("/", async (req, res, next) => {
 })
 
 router.post("/blog",protect, async (req, res, next) => {
-    const {heading,category,text} = req.body
+    const {heading,category,image,subheadline,textmain,imageheading,image2} = req.body
 
     try {
 
@@ -28,7 +28,11 @@ router.post("/blog",protect, async (req, res, next) => {
         const blog = await BlogSchema.create({
             heading,
             category,
-            text,
+            image,
+            subheadline,
+            textmain,
+            imageheading,
+            image2,
             username:user.username
         })
 
@@ -56,7 +60,7 @@ router.post("/getBlog",async (req, res, next) => {
 })
 
 router.put("/blog",protect, async (req, res, next) => {
-    const {heading,category,text,blogId} = req.body
+    const {heading,category,image,blogId,subheadline,textmain,imageheading,image2} = req.body
 
 
     try {
@@ -71,7 +75,12 @@ router.put("/blog",protect, async (req, res, next) => {
 
         blog.heading = heading
         blog.category = category
-        blog.text = text
+        blog.image = image
+        blog.subheadline = subheadline
+        blog.textmain = textmain
+        blog.imageheading = imageheading
+        blog.image2 = image2
+
 
         await blog.save()
         res.status(200).json({ success: true, message:"Blog updated!" });

@@ -5,12 +5,16 @@ const BlogSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide a heading"],
     },
+    subheadline: {
+        type: String,
+        required: [true, "Please provide a heading"],
+    },
     category: {
         type: String,
         required: [true, "Please provide a category"],
-        enum: ['Tech', 'Product', 'Design'],
+        enum: ['Training', 'Food', 'Other'],
     },
-    text: {
+    textmain: {
         type: String,
         required: [true, "Please provide a text"],
     },
@@ -19,6 +23,15 @@ const BlogSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide your username"],
     },
+    image:{
+        type: String   
+    },
+    imageheading:{
+        type: String   
+    },
+    image2:{
+        type: String   
+    }
 })
 
 const model = mongoose.model("Blog", BlogSchema);

@@ -3,11 +3,11 @@ const form = document.getElementById('form');
 const date = document.getElementById('date');
 const category = document.getElementById('category');
 const heading = document.getElementById('heading');
-const image = document.getElementById('image');
+const image = document.getElementById('image-input');
 const subheadline = document.getElementById('subheadline');
 const textmain = document.getElementById('textmain');
 const imageheading = document.getElementById('imageheading');
-const image2 = document.getElementById('image2');
+const image2 = document.getElementById('explain-image-input');
 
 const submitButton = document.getElementById("submit-button")
 
