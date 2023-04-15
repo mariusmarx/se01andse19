@@ -1,19 +1,5 @@
 var filterItem = document.querySelectorAll('[id=category]');
-console.log(filterItem)
 
-//Active to Button
-filterItem.forEach((item) => {
-  item.addEventListener("click", () => {
-    filterItem.forEach((item) => {
-      if (item.classList.contains("bg-orange-500")) {
-        item.classList.remove("bg-orange-500");
-      }
-    });
-    item.classList.add("bg-orange-500");
-  });
-});
-
-var filterItem = document.querySelectorAll(".category");
 var postBox = document.querySelectorAll(".post-box");
 
 const articleSection = document.getElementById("article-section")
@@ -21,28 +7,27 @@ const articleSection = document.getElementById("article-section")
 async function loadBlogs() {
   try {
     const { data } = await axios.get("http://localhost:5000/blogs");
+    console.log(data)
 
     const blogs = data.blogs.reverse()
 
     const username = await getUsername()
     for (blog of blogs) {
       const postTemplate = `
-        <div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
+        <div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink post-box ${blog.category}">
             <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-                <a href="/blogarticles.html?id=${blog._id}" class="flex flex-wrap no-underline hover:no-underline">
-                    <img src="img/img1.jpg" alt="" class="h-full w-full rounded-t pb-6">
+                <a href="/post.html?id=${blog._id}" class="flex flex-wrap no-underline hover:no-underline">
+                    <img src="${blog.image}" alt="" class="w-full h-96 object-contain object-cover rounded-t pb-6">
                     <p class="w-full text-gray-600 text-xs md:text-sm px-6">${blog.category}</p>
                     <div class="w-full font-bold text-xl text-gray-900 px-6">${blog.heading}</div>
-                    <p class="text-gray-800 font-serif text-base px-6 mb-5">${blog.text}</p>
+                    <p class="text-gray-800 font-serif text-base px-6 mb-5">${blog.subheadline}</p>
                 </a>
             </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
+            <div class="flex-none mt-auto bg-white rounded-b text-center rounded-t-none overflow-hidden shadow-lg p-6">
                 <div class="flex items-center justify-between">
-                    <img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="${blog.username}"
-                        src="img/profile1.jpg" alt="Avatar of Author">
                     <p class="text-gray-600 text-xs md:text-sm">${new Date(blog.createdAt).toLocaleString()}</p>
                 </div>
-                ${username === blog.username ? `<a href="/article.html?id=${blog._id}">Edit your article</a>` : ''}
+                ${username === blog.username ? `<a href="/postcreate.html?id=${blog._id}">Edit your article</a>` : ''}
             </div>
         </div>`;
       articleSection.innerHTML += postTemplate;
@@ -58,6 +43,17 @@ async function loadBlogs() {
 
 loadBlogs()
 
+//Active to Button
+filterItem.forEach((item) => {
+  item.addEventListener("click", () => {
+    filterItem.forEach((item) => {
+      if (item.classList.contains("bg-orange-500")) {
+        item.classList.remove("bg-orange-500");
+      }
+    });
+    item.classList.add("bg-orange-500");
+  });
+});
 //Filter JS
 
 filterItem.forEach((item) => {
@@ -79,8 +75,12 @@ filterItem.forEach((item) => {
   });
 });
 
+
+
 //Add Login Button
 let login = document.getElementById('login-button')
+let register = document.getElementById('register-button')
+let plus = document.getElementById('plus-button')
 //console.log(login)
 login.addEventListener("click", () => {
   if (isLoggedIn()) {
@@ -94,4 +94,9 @@ login.addEventListener("click", () => {
 
 if (isLoggedIn()) {
   login.innerHTML = "Logout"
+  register.style.display = "none" // hide the register button
+  plus.style.display = "block" // show the plus button
+} else {
+  register.style.display = "block" // show the register button
+  plus.style.display = "none" // show the plus button
 }

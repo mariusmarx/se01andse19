@@ -1,6 +1,5 @@
 const form = document.getElementById('form');
 
-const date = document.getElementById('date');
 const category = document.getElementById('category');
 const heading = document.getElementById('heading');
 const image = document.getElementById('image-input');
@@ -26,7 +25,6 @@ async function loadBlog() {
   try {
     const { data } = await axios.post("http://localhost:5000/blogs/getBlog", { blogId: id });
     console.log(data.blog.heading)
-    date.value = data.blog.date
     category.value = data.blog.category
     heading.value = data.blog.heading
     image.value = data.blog.image
@@ -48,7 +46,6 @@ form.addEventListener('submit', e => {
 });
 
 async function createPost() {
-  const dateValue = date.value
   const categoryValue = category.value
   const headingValue = heading.value.trim()
   const imageValue = image.value.trim()
@@ -67,7 +64,6 @@ async function createPost() {
   try {
     if (id) {
       const { data } = await axios.put("http://localhost:5000/blogs/blog", {
-        date: dateValue,
         category: categoryValue,
         heading: headingValue,
         image: imageValue,
@@ -82,7 +78,6 @@ async function createPost() {
 
     } else {
       const { data } = await axios.post("http://localhost:5000/blogs/blog", {
-        date: dateValue,
         category: categoryValue,
         heading: headingValue,
         image: imageValue,
