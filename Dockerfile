@@ -29,6 +29,6 @@ COPY --from=build-backend /app backend
 COPY --from=build-frontend /app frontend
 
 ENV NODE_ENV=production
-EXPOSE 3000
+EXPOSE 5000
 
 CMD ["node", "./backend/server.js"]
