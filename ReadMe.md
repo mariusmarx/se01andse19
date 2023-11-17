@@ -21,10 +21,6 @@ Runs the backend.
 
 The website is build and hosted via Google Cloud Platform. It gets automaticly build inside of a docker container, if it gets pushed to the main branch on github.
 
-## website architecture
-
-![Alt text](Flow.jpg?raw=true "Flow")
-
 ## website url
 
 To visit the hosted version of the website, go to: https://se01andse19-q5eo4wheta-ew.a.run.app/home.html
