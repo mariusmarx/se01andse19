@@ -6,7 +6,7 @@ const articleSection = document.getElementById("article-section")
 
 async function loadBlogs() {
   try {
-    const { data } = await axios.get("http://localhost:5000/blogs");
+    const { data } = await axios.get("https://se01andse19-q5eo4wheta-ew.a.run.app/blogs");
     console.log(data)
 
     const blogs = data.blogs.reverse()

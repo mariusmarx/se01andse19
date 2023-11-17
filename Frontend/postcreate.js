@@ -23,7 +23,7 @@ async function loadBlog() {
   header.innerText = "Update Article"
   submitButton.innerText = "Update"
   try {
-    const { data } = await axios.post("http://localhost:5000/blogs/getBlog", { blogId: id });
+    const { data } = await axios.post("https://se01andse19-q5eo4wheta-ew.a.run.app/blogs/getBlog", { blogId: id });
     console.log(data.blog.heading)
     category.value = data.blog.category
     heading.value = data.blog.heading
@@ -63,7 +63,7 @@ async function createPost() {
 
   try {
     if (id) {
-      const { data } = await axios.put("http://localhost:5000/blogs/blog", {
+      const { data } = await axios.put("https://se01andse19-q5eo4wheta-ew.a.run.app/blogs/blog", {
         category: categoryValue,
         heading: headingValue,
         image: imageValue,
@@ -77,7 +77,7 @@ async function createPost() {
       window.location.href = "/";
 
     } else {
-      const { data } = await axios.post("http://localhost:5000/blogs/blog", {
+      const { data } = await axios.post("https://se01andse19-q5eo4wheta-ew.a.run.app/blogs/blog", {
         category: categoryValue,
         heading: headingValue,
         image: imageValue,

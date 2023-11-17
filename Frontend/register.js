@@ -61,7 +61,7 @@ function checkInputs () {
 }
 async function requestRegistration(emailValue, passwordValue,usernameValue) {
 	try {
-		const { data } = await axios.post("http://localhost:5000/users/register", {
+		const { data } = await axios.post("https://se01andse19-q5eo4wheta-ew.a.run.app/users/register", {
 			email:emailValue,
 			password:passwordValue,
 			username:usernameValue

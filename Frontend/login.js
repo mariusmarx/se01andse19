@@ -37,7 +37,7 @@ function checkInputs() {
 
 async function requestLogin(emailValue, passwordValue) {
 	try {
-		const { data } = await axios.post("http://localhost:5000/users/login", {
+		const { data } = await axios.post("https://se01andse19-q5eo4wheta-ew.a.run.app/users/login", {
 			email:emailValue,
 			password:passwordValue,
 		});
