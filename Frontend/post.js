@@ -17,7 +17,7 @@ if (id) {
 
 async function loadBlog() {
     try {
-        const { data } = await axios.post("https://se01andse19-q5eo4wheta-ew.a.run.app:5000/blogs/getBlog", { blogId: id });
+        const { data } = await axios.post("https://se01andse19-q5eo4wheta-ew.a.run.app/blogs/getBlog", { blogId: id });
         console.log(data)
         date.innerText = data.blog.createdAt;
         category.innerText = data.blog.category;

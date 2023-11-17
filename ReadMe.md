@@ -3,7 +3,7 @@ On this website you can register and login. Create a Blogpost and update them. O
 
 ## How to start the project 
 
-By starting the backend, the frontend gets served by it under http://localhost:5000 or by the PORT defined in the .env file. 
+If you want to run this blog locally, make sure to just switch the endpoints towards http://localhost:5000 and it should work.
 
 First you need to creat a `.env` with the your credentials. A `example.env` file is provided in the backend folder.
 
@@ -27,4 +27,4 @@ The website is build and hosted via Google Cloud Platform. It gets automaticly b
 
 ## website url
 
-To visit the hosted version of the website, go to: http://localhost:5000/
+To visit the hosted version of the website, go to: https://se01andse19-q5eo4wheta-ew.a.run.app/home.html
